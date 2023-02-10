@@ -99,6 +99,10 @@ class Grid:
             for col in row:
                 col.draw(screen)
 
+    def draw_start_zone(self, screen):
+        start_zone = Node(settings.ROBOT_SAFETY_DISTANCE, settings.ROBOT_SAFETY_DISTANCE, True)
+        start_zone.draw_start(screen)
+
     def draw(self, screen):
         # Draw nodes
         self.draw_nodes(screen)
@@ -106,3 +110,5 @@ class Grid:
         self.draw_arena_borders(screen)
         # Draw obstacles
         self.draw_obstacles(screen)
+
+        self.draw_start_zone(screen)

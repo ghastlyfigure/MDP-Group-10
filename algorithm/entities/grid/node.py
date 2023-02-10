@@ -55,3 +55,12 @@ class Node:
         self.draw_self(screen)
         # Draw node border
         self.draw_boundary(screen)
+
+    def draw_start(self, screen):
+        # Draw self
+        if self.occupied:  # If current node is not permissible to the robot
+            rect = pygame.Rect(0, 0, settings.GRID_START_BOX_LENGTH, settings.GRID_START_BOX_LENGTH)
+            rect.center = self.pos.xy_pygame()
+            pygame.draw.rect(screen, colors.ORANGE, rect)
+        # Draw node border
+        self.draw_boundary(screen)
