@@ -43,7 +43,10 @@ class Brain:
                                   ((targets[i][1] - targets[i + 1][1]) ** 2))
             return dist
 
-        simple = min(perms, key=calc_distance)
+        # simple = min(perms, key=calc_distance)
+        perms.sort(key=calc_distance);
+        simple = perms[20];
+
         print("Found a simple hamiltonian path:")
         for ob in simple:
             print(f"\t{ob}")
@@ -73,28 +76,6 @@ class Brain:
         self.commands = new_commands
         print("Done!")
 
-    # def plan_path(self):
-    #     print("-" * 40)
-    #     print("STARTING PATH COMPUTATION...")
-    #     self.simple_hamiltonian = self.compute_simple_hamiltonian_path()
-    #     print()
-    #
-    #     curr = self.robot.pos.copy()  # We use a copy rather than get a reference.
-    #     for obstacle in self.simple_hamiltonian:
-    #         target = obstacle.get_robot_target_pos()
-    #         print(f"Planning {curr} to {target}")
-    #         res = ModifiedAStar(self.grid, self, curr, target).start_astar()
-    #         if res is None:
-    #             print(f"\tNo path found from {curr} to {obstacle}")
-    #         else:
-    #             print("\tPath found.")
-    #             curr = res
-    #             self.commands.append(ScanCommand(settings.ROBOT_SCAN_TIME, obstacle.index))
-    #
-    #     self.compress_paths()
-    #     print("-" * 40)
-
-
     def plan_path(self):
         print("-" * 40)
         print("STARTING PATH COMPUTATION...")
@@ -102,23 +83,49 @@ class Brain:
         print()
 
         curr = self.robot.pos.copy()  # We use a copy rather than get a reference.
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            futures = []
-            for obstacle in self.simple_hamiltonian:
-                target = obstacle.get_robot_target_pos()
-                print(f"Planning {curr} to {target}")
-                future = executor.submit(ModifiedAStar(self.grid, self, curr, target).start_astar)
-                futures.append(future)
-                curr = target
-
-            for i, future in enumerate(concurrent.futures.as_completed(futures)):
-                obstacle = self.simple_hamiltonian[i]
-                if future.result() is None:
-                    print(f"\tNo path found from {curr} to {obstacle}")
-                else:
-                    print("\tPath found.")
-                    curr = future.result()
-                    self.commands.append(ScanCommand(settings.ROBOT_SCAN_TIME, obstacle.index))
+        for obstacle in self.simple_hamiltonian:
+            target = obstacle.get_robot_target_pos()
+            print(f"Planning {curr} to {target}")
+            res = ModifiedAStar(self.grid, self, curr, target).start_astar()
+            if res is None:
+                print(f"\tNo path found from {curr} to {obstacle}")
+            else:
+                print("\tPath found.")
+                curr = res
+                self.commands.append(ScanCommand(settings.ROBOT_SCAN_TIME, obstacle.index))
 
         self.compress_paths()
         print("-" * 40)
+
+
+    # def plan_path(self):
+    #     print("-" * 40)
+    #     print("STARTING PATH COMPUTATION...")
+    #     self.simple_hamiltonian = self.compute_simple_hamiltonian_path()
+    #     print()
+    #
+    #     curr = self.robot.pos.copy()  # We use a copy rather than get a reference.
+    #     with concurrent.futures.ThreadPoolExecutor() as executor:
+    #         futures = []
+    #         counter = 0
+    #         for obstacle in self.simple_hamiltonian:
+    #             if counter == 2:
+    #                 break
+    #             target = obstacle.get_robot_target_pos()
+    #             print(f"Planning {curr} to {target}")
+    #             future = executor.submit(ModifiedAStar(self.grid, self, curr, target).start_astar)
+    #             futures.append(future)
+    #             curr = target
+    #             counter += 1
+    #
+    #         for i, future in enumerate(concurrent.futures.as_completed(futures)):
+    #             obstacle = self.simple_hamiltonian[i]
+    #             if future.result() is None:
+    #                 print(f"\tNo path found from {curr} to {obstacle}")
+    #             else:
+    #                 print("\tPath found.")
+    #                 curr = future.result()
+    #                 self.commands.append(ScanCommand(settings.ROBOT_SCAN_TIME, obstacle.index))
+    #
+    #     self.compress_paths()
+    #     print("-" * 40)
