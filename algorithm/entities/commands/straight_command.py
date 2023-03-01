@@ -49,10 +49,23 @@ class StraightCommand(Command):
 
         # Note that the distance is now scaled.
         # Therefore, we need to de-scale it.
+        """
+        Conversion to a message that is easy to send over the RPi.
+        RPI needs in this format: a,b,abc,c, 1digit,1digit,3digit,1digit
+        first: decides if go straight or turn, 1 is straight, 0 is turn
+        second: if go straight, forward or backwards, 1 is forward, 0 is reverse
+        third: distance, only applies if first argument is 1. unit in cm
+        fourth: only applies if turning, 1 is turn right, 0 is turn left
+        have default argument,
+        """
         descaled_distance = int(self.dist // settings.SCALING_FACTOR)
         # Check if forward or backward.
         if descaled_distance < 0:
             # It is a backward command.
-            return f"b{abs(descaled_distance):04}"
+            command_string = [1, 0, int('{:0>3}'.format(abs(descaled_distance))), 0]
+            # return f"b{abs(descaled_distance):04}"
+            return command_string
         # Else, it is a forward command.
-        return f"f{descaled_distance:04}"
+        # return f"f{descaled_distance:04}"
+        command_string = [1, 1, int('{:0>3}'.format(descaled_distance)), 0]
+        return command_string

@@ -41,6 +41,9 @@ class Robot:
         """
         print("Converting commands to string...", end="")
         string_commands = [command.convert_to_message() for command in self.brain.commands]
+        for command in string_commands:
+            print(command)
+        # print(string_commands)
         print("Done!")
         return string_commands
 

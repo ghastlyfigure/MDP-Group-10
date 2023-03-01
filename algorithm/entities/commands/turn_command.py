@@ -91,15 +91,32 @@ class TurnCommand(Command):
         return self
 
     def convert_to_message(self):
+        """
+        Conversion to a message that is easy to send over the RPi.
+        RPI needs in this format: [a,b,cde,f],
+        a: decides if go straight or turn, 1 is straight, 0 is turn
+        b: if go straight, forward or backwards, 1 is forward, 0 is reverse
+        cde: distance, only applies if first argument is 1. unit in cm
+        f: only applies if turning, 1 is turn right, 0 is turn left
+        have default argument,
+        """
         if self.angle > 0 and not self.rev:
             # This is going forward left.
-            return "l0090"  # Note the smaller case L.
+            command_string = [0, 1, 000, 0]
+            return command_string
+            # return "l0090"  # Note the smaller case L.
         elif self.angle > 0 and self.rev:
             # This is going backward and with the wheels to the right.
-            return "R0090"
+            command_string = [0, 0, 000, 1]
+            return command_string
+            # return "R0090"
         elif self.angle < 0 and not self.rev:
             # This is going forward right.
-            return "r0090"
+            command_string = [0, 1, 000, 1]
+            return command_string
+            # return "r0090"
         else:
             # This is going backward and with the wheels to the left.
-            return "L0090"
+            command_string = [0, 0, 000, 0]
+            return command_string
+            # return "L0090"

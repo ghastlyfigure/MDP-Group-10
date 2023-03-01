@@ -34,5 +34,12 @@ class Command(ABC):
     def convert_to_message(self):
         """
         Conversion to a message that is easy to send over the RPi.
+        RPI needs in this format: a,b,abc,c, 1digit,1digit,3digit,1digit
+        first: decides if go straight or turn, 1 is straight, 0 is turn
+        second: if go straight, forward or backwards, 1 is forward, 0 is reverse
+        third: distance, only applies if first argument is 1. unit in cm
+        fourth: only applies if turning, 1 is turn right, 0 is turn left
+        have default argument,
         """
         pass
+
