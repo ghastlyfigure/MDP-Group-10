@@ -43,7 +43,10 @@ class Brain:
                                   ((targets[i][1] - targets[i + 1][1]) ** 2))
             return dist
 
-        simple = min(perms, key=calc_distance)
+        # simple = min(perms, key=calc_distance)
+        perms.sort(key=calc_distance);
+        simple = perms[20];
+
         print("Found a simple hamiltonian path:")
         for ob in simple:
             print(f"\t{ob}")
@@ -72,9 +75,7 @@ class Brain:
                 index += 1
         self.commands = new_commands
         print("Done!")
-        print(self.commands)
 
-    # This is the original working plan_path
     def plan_path(self):
         print("-" * 40)
         print("STARTING PATH COMPUTATION...")
@@ -96,7 +97,7 @@ class Brain:
         self.compress_paths()
         print("-" * 40)
 
-    # # This is the brute force plan_path, not working
+
     # def plan_path(self):
     #     print("-" * 40)
     #     print("STARTING PATH COMPUTATION...")
@@ -106,12 +107,16 @@ class Brain:
     #     curr = self.robot.pos.copy()  # We use a copy rather than get a reference.
     #     with concurrent.futures.ThreadPoolExecutor() as executor:
     #         futures = []
+    #         counter = 0
     #         for obstacle in self.simple_hamiltonian:
+    #             if counter == 2:
+    #                 break
     #             target = obstacle.get_robot_target_pos()
     #             print(f"Planning {curr} to {target}")
     #             future = executor.submit(ModifiedAStar(self.grid, self, curr, target).start_astar)
     #             futures.append(future)
     #             curr = target
+    #             counter += 1
     #
     #         for i, future in enumerate(concurrent.futures.as_completed(futures)):
     #             obstacle = self.simple_hamiltonian[i]
