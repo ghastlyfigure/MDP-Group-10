@@ -102,21 +102,21 @@ class TurnCommand(Command):
         """
         if self.angle > 0 and not self.rev:
             # This is going forward left.
-            command_string = [0, 1, 000, 0]
+            command_string = "0,1,000,0"
             return command_string
             # return "l0090"  # Note the smaller case L.
         elif self.angle > 0 and self.rev:
             # This is going backward and with the wheels to the right.
-            command_string = [0, 0, 000, 1]
+            command_string = "0,0,000,1"
             return command_string
             # return "R0090"
         elif self.angle < 0 and not self.rev:
             # This is going forward right.
-            command_string = [0, 1, 000, 1]
+            command_string = "0,1,000,1"
             return command_string
             # return "r0090"
         else:
             # This is going backward and with the wheels to the left.
-            command_string = [0, 0, 000, 0]
+            command_string = "0,0,000,0"
             return command_string
             # return "L0090"

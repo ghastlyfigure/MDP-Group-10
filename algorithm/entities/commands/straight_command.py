@@ -62,10 +62,10 @@ class StraightCommand(Command):
         # Check if forward or backward.
         if descaled_distance < 0:
             # It is a backward command.
-            command_string = [1, 0, int('{:0>3}'.format(abs(descaled_distance))), 0]
+            command_string = "1,0," + '{:0>3}'.format(abs(descaled_distance)) + ",0"
             # return f"b{abs(descaled_distance):04}"
             return command_string
         # Else, it is a forward command.
         # return f"f{descaled_distance:04}"
-        command_string = [1, 1, int('{:0>3}'.format(descaled_distance)), 0]
+        command_string = "1,1," + '{:0>3}'.format(descaled_distance) + ",0"
         return command_string

@@ -55,8 +55,9 @@ class AlgoSimulator(AlgoApp):
         pygame.display.flip()
 
         # Calculate the path.
-        self.robot.brain.plan_path()
+        order = self.robot.brain.plan_path()
         pygame.display.set_caption("Simulating path!")  # Update the caption once done.
+        return order
 
     def settle_events(self):
         """
@@ -112,5 +113,6 @@ class AlgoMinimal(AlgoApp):
     def execute(self):
         # Calculate path
         print("Calculating path...")
-        self.robot.brain.plan_path()
+        order = self.robot.brain.plan_path() # change change change change change change change change change change change change
         print("Done!")
+        return order # change change change change change change change change change change change change
