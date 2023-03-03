@@ -48,8 +48,6 @@ class Brain:
         perms.sort(key=calc_distance);
         simple = perms[0];
         print(simple)
-        # for item in perms:
-        #     print(calc_distance(item))
 
         print("Found a simple hamiltonian path:")
         for ob in simple:
@@ -85,7 +83,7 @@ class Brain:
         print("STARTING PATH COMPUTATION...")
         self.simple_hamiltonian = self.compute_simple_hamiltonian_path()
         print()
-        order = [] # change change change change change change change change change change change change
+        order = []
 
         curr = self.robot.pos.copy()  # We use a copy rather than get a reference.
         for obstacle in self.simple_hamiltonian:
@@ -98,11 +96,11 @@ class Brain:
                 print("\tPath found.")
                 curr = res
                 self.commands.append(ScanCommand(settings.ROBOT_SCAN_TIME, obstacle.index))
-                order.append(obstacle.index) # change change change change change change change change change change change change
+                order.append(obstacle.index)
 
         self.compress_paths()
         print("-" * 40)
-        return order # change change change change change change change change change change change change
+        return order
 
 
     # def plan_path(self):

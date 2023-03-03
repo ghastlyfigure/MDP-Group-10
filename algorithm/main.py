@@ -25,11 +25,8 @@ def run_simulator():
     # Fill in obstacle positions with respect to lower bottom left corner.
     # (x-coordinate, y-coordinate, Direction)
     # obstacles = [[105, 75, 90, 0], [175, 25, 180, 1], [175, 175, 180, 2], [75, 125, 180, 4], [15, 185, -90, 5]]
-    obstacles = [[15, 95, -90, 1], [45, 45, -90, 2], [95, 95, -90, 3]]
+    obstacles = [[15, 95, -90, 1], [55, 35, 0, 2]]
     # obstacles = [[15, 95, -90, 0]]
-    # for obstacle in obstacles:
-    #     if obstacle[0] == 5:
-    #         obstacle[0] += 10
     obs = parse_obstacle_data(obstacles)
     app = AlgoSimulator(obs)
     order = app.init()
@@ -80,13 +77,13 @@ def run_minimal(also_run_simulator):
         app.execute()
     app = AlgoMinimal(obstacles)
     app.init()
-    order = app.execute() # change change change change change change change change change change change change
+    order = app.execute()
 
     # Send the list of commands over.
     print("Sending list of commands to RPi...")
     commands = app.robot.convert_all_commands()
-    order_and_commands = [order, commands]  # change change change change change change change change change change change change
-    client.send_message(order_and_commands)  # change change change change change change change change change change change change
+    order_and_commands = [order, commands]
+    client.send_message(order_and_commands)
     client.close()
 
 

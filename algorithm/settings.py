@@ -31,7 +31,7 @@ GRID_NUM_GRIDS = GRID_LENGTH // GRID_CELL_LENGTH
 
 # Obstacle Attributes
 OBSTACLE_LENGTH = 10 * SCALING_FACTOR
-OBSTACLE_SAFETY_WIDTH = ROBOT_SAFETY_DISTANCE // 3 * 5  # With respect to the center of the obstacle
+OBSTACLE_SAFETY_WIDTH = ROBOT_SAFETY_DISTANCE // 3 * 3  # With respect to the center of the obstacle
 
 # Path Finding Attributes
 PATH_TURN_COST = 99999 * ROBOT_SPEED_PER_SECOND * ROBOT_RIGHT_TURN_RADIUS

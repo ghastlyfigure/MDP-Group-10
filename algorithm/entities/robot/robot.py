@@ -44,6 +44,7 @@ class Robot:
         for command in string_commands:
             print(command)
         # print(string_commands)
+        string_commands.append("finish")
         print("Done!")
         return string_commands
 
