@@ -41,11 +41,17 @@ class Robot:
         """
         print("Converting commands to string...", end="")
         string_commands = [command.convert_to_message() for command in self.brain.commands]
+        total_dist = 0
         for command in string_commands:
             print(command)
+            parts = command.split(",")
+            if parts[0] == "1": # straight
+                total_dist += int(parts[2])
+            if parts[0] == "0": # turn
+                total_dist += int(100)
         # print(string_commands)
         string_commands.append("finish")
-        print("Done!")
+        print("total_dist = ", total_dist)
         return string_commands
 
     def turn(self, d_angle, rev):
@@ -104,6 +110,7 @@ class Robot:
         self.draw_historic_path(screen)
 
     def update(self):
+        # return
         # Store historic path
         if len(self.path_hist) == 0 or self.pos.xy_pygame() != self.path_hist[-1]:
             # Only add a new point history if there is none, and it is different from previous history.

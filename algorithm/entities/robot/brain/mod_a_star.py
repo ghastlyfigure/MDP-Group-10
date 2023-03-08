@@ -89,7 +89,8 @@ class ModifiedAStar:
         """
         dx = abs(curr_pos.x - self.end.x)
         dy = abs(curr_pos.y - self.end.y)
-        return math.sqrt(dx ** 2 + dy ** 2)
+        # return math.sqrt(dx ** 2 + dy ** 2)
+        return dx + dy
 
     def start_astar(self):
         frontier = PriorityQueue()  # Store frontier nodes to travel to.

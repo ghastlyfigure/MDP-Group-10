@@ -27,6 +27,8 @@ class StraightCommand(Command):
         self.tick()
         distance = self.dist / self.total_ticks
         robot.straight(distance)
+        # print(distance)
+        # return distance
 
     def apply_on_pos(self, curr_pos: Position):
         """

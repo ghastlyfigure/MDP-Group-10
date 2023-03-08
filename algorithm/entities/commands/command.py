@@ -18,6 +18,7 @@ class Command(ABC):
         """
         Overriding method must call tick().
         """
+        # return 0
         pass
 
     @abstractmethod
