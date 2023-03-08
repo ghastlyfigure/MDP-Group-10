@@ -51,7 +51,7 @@ class Robot:
                 total_dist += int(100)
         # print(string_commands)
         string_commands.append("finish")
-        print("total_dist = ", total_dist)
+        print("total_dist =", total_dist)
         return string_commands
 
     def turn(self, d_angle, rev):
