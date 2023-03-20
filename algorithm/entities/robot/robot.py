@@ -49,7 +49,6 @@ class Robot:
                 total_dist += int(parts[2])
             if parts[0] == "0": # turn
                 total_dist += int(100)
-        # print(string_commands)
         string_commands.append("finish")
         print("total_dist =", total_dist)
         return string_commands

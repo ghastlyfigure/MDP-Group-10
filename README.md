@@ -1,24 +1,23 @@
 <div align="center">
 
-# Algorithm
+# MDP Group 10: Tensla
 
 </div>
 
 ## Environment
-- Python Version: 3.10.2 (any 3.10.x version should run fine)
+- Python Version: 3.10.2
 - Dependencies: pygame
+- IDE: PyCharm
 
-## Usage
-For best results, please run on PyCharm.
-
-Steps:
-1. Run `main.py` in `algorithm` folder.
-2. Profit.
+## Instructions for use
+Run `main.py` in the `algorithm` folder. After calculation, a pop-up will appear. 
+This is our simulator. Obstacles for the simulator can be adjusted in `main.py`,
+or can be obtained from the Raspberry Pi. There is also an option to run the 
+algorithm without the simulator there.
 
 ## Settings
 The application provides many settings which can be changed to your liking.
 You may find this in `settings.py` in the `algorithm` folder.
 
-<b>NOTE</b>: Please make sure to revert any changes in the settings file if you are pushing any changes, unless
-you know what you are doing!
+
 
