@@ -3,11 +3,11 @@ from abc import ABC, abstractmethod
 
 import pygame
 
-from algorithm import settings
-from algorithm.entities.assets import colors
-from algorithm.entities.grid.grid import Grid
-from algorithm.entities.grid.obstacle import Obstacle
-from algorithm.entities.robot.robot import Robot
+import settings
+from entities.assets import colors
+from entities.grid.grid import Grid
+from entities.grid.obstacle import Obstacle
+from entities.robot.robot import Robot
 
 
 class AlgoApp(ABC):

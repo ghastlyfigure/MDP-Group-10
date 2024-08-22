@@ -1,8 +1,8 @@
 import pygame
 
-from algorithm import settings
-from algorithm.entities.assets import colors
-from algorithm.entities.grid.position import Position
+import settings
+from entities.assets import colors
+from entities.grid.position import Position
 
 
 class Node:

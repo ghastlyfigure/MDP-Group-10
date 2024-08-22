@@ -1,9 +1,9 @@
 import math
 
-from algorithm import settings
-from algorithm.entities.assets.direction import Direction
-from algorithm.entities.commands.command import Command
-from algorithm.entities.grid.position import Position, RobotPosition
+import settings
+from entities.assets.direction import Direction
+from entities.commands.command import Command
+from entities.grid.position import Position, RobotPosition
 
 
 class TurnCommand(Command):

@@ -1,10 +1,10 @@
 import itertools
 from collections import deque
 
-from algorithm import settings
-from algorithm.entities.commands.scan_command import ScanCommand
-from algorithm.entities.commands.straight_command import StraightCommand
-from algorithm.entities.robot.brain.mod_a_star import ModifiedAStar
+import settings
+from entities.commands.scan_command import ScanCommand
+from entities.commands.straight_command import StraightCommand
+from entities.robot.brain.mod_a_star import ModifiedAStar
 
 
 class Brain:

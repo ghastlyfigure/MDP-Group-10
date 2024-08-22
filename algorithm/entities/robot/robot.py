@@ -1,14 +1,14 @@
 import pygame
 import datetime
 
-from algorithm import settings
-from algorithm.entities.assets import colors
-from algorithm.entities.assets.direction import Direction
-from algorithm.entities.commands.command import Command
-from algorithm.entities.commands.straight_command import StraightCommand
-from algorithm.entities.commands.turn_command import TurnCommand
-from algorithm.entities.grid.position import RobotPosition
-from algorithm.entities.robot.brain.brain import Brain
+import settings
+from entities.assets import colors
+from entities.assets.direction import Direction
+from entities.commands.command import Command
+from entities.commands.straight_command import StraightCommand
+from entities.commands.turn_command import TurnCommand
+from entities.grid.position import RobotPosition
+from entities.robot.brain.brain import Brain
 
 
 class Robot:
@@ -24,7 +24,7 @@ class Robot:
 
         self.brain = Brain(self, grid)
 
-        self.__image = pygame.transform.scale(pygame.image.load("entities/assets/Tensla.png"),
+        self.__image = pygame.transform.scale(pygame.image.load("algorithm\entities\\assets\Tensla.png"),
                                               (settings.ROBOT_LENGTH, settings.ROBOT_LENGTH))
 
         self.path_hist = []  # Stores the history of the path taken by the robot.

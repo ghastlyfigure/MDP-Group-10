@@ -1,5 +1,5 @@
-from algorithm import settings
-from algorithm.entities.assets.direction import Direction
+import settings
+from entities.assets.direction import Direction
 
 
 class Position:

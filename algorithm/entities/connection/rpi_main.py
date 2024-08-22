@@ -1,7 +1,7 @@
 import sys
 
-from algorithm.entities.connection.rpi_client import RPiClient
-from algorithm.entities.connection.rpi_server import RPiServer
+from entities.connection.rpi_client import RPiClient
+from entities.connection.rpi_server import RPiServer
 
 
 def main():

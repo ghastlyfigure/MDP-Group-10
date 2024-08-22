@@ -4,11 +4,11 @@ from typing import List
 
 import pygame
 
-from algorithm import settings
-from algorithm.entities.assets import colors
-from algorithm.entities.grid.node import Node
-from algorithm.entities.grid.obstacle import Obstacle
-from algorithm.entities.grid.position import Position
+import settings
+from entities.assets import colors
+from entities.grid.node import Node
+from entities.grid.obstacle import Obstacle
+from entities.grid.position import Position
 
 
 class Grid:

@@ -1,7 +1,7 @@
-from algorithm import settings
-from algorithm.entities.assets.direction import Direction
-from algorithm.entities.commands.command import Command
-from algorithm.entities.grid.position import Position
+import settings
+from entities.assets.direction import Direction
+from entities.commands.command import Command
+from entities.grid.position import Position
 
 
 class StraightCommand(Command):

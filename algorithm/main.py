@@ -2,12 +2,12 @@ import sys
 import time
 from typing import List
 
-from algorithm import settings
-from algorithm.app import AlgoSimulator, AlgoMinimal
-from algorithm.entities.assets.direction import Direction
-from algorithm.entities.connection.rpi_client import RPiClient
-from algorithm.entities.connection.rpi_server import RPiServer
-from algorithm.entities.grid.obstacle import Obstacle
+import settings
+from app import AlgoSimulator, AlgoMinimal
+from entities.assets.direction import Direction
+from entities.connection.rpi_client import RPiClient
+from entities.connection.rpi_server import RPiServer
+from entities.grid.obstacle import Obstacle
 
 
 def parse_obstacle_data(data) -> List[Obstacle]:

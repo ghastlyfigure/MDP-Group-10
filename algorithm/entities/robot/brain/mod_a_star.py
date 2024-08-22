@@ -2,13 +2,13 @@ import math
 from queue import PriorityQueue
 from typing import List, Tuple
 
-from algorithm import settings
-from algorithm.entities.commands.command import Command
-from algorithm.entities.commands.straight_command import StraightCommand
-from algorithm.entities.commands.turn_command import TurnCommand
-from algorithm.entities.grid.grid import Grid
-from algorithm.entities.grid.node import Node
-from algorithm.entities.grid.position import RobotPosition
+import settings
+from entities.commands.command import Command
+from entities.commands.straight_command import StraightCommand
+from entities.commands.turn_command import TurnCommand
+from entities.grid.grid import Grid
+from entities.grid.node import Node
+from entities.grid.position import RobotPosition
 
 
 class ModifiedAStar:

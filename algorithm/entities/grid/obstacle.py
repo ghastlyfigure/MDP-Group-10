@@ -1,9 +1,9 @@
 import pygame
 
-from algorithm import settings
-from algorithm.entities.assets import colors
-from algorithm.entities.assets.direction import Direction
-from algorithm.entities.grid.position import Position, RobotPosition
+import settings
+from entities.assets import colors
+from entities.assets.direction import Direction
+from entities.grid.position import Position, RobotPosition
 
 
 class Obstacle:
@@ -24,7 +24,7 @@ class Obstacle:
         self.pos = Position(x * settings.SCALING_FACTOR, y * settings.SCALING_FACTOR, direction)
 
         # Arrow to draw at the target coordinate.
-        self.target_image = pygame.transform.scale(pygame.image.load("entities/assets/target-arrow.png"),
+        self.target_image = pygame.transform.scale(pygame.image.load("algorithm\entities\\assets\\target-arrow.png"),
                                                    (50, 50))
 
         self.index = index
