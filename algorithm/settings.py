@@ -6,8 +6,8 @@ FRAMES = 60
 WINDOW_SIZE = 800, 800
 
 # Connection to RPi
-RPI_HOST: str = "192.168.8.8"
-RPI_PORT: int = 4160
+RPI_HOST: str = "192.168.4.4"
+RPI_PORT: int = 22 #4160
 
 # Connection to PC
 PC_HOST: str = socket.gethostbyname(socket.gethostname())
@@ -15,8 +15,8 @@ PC_PORT: int = 4161
 
 # Robot Attributes
 ROBOT_LENGTH = 20 * SCALING_FACTOR
-ROBOT_LEFT_TURN_RADIUS = 0.001 * SCALING_FACTOR # use 0.001 for in-place turns, or turn radius for 90-degree turns
-ROBOT_RIGHT_TURN_RADIUS = 0.001 * SCALING_FACTOR # use 0.001 for in-place turns, or turn radius for 90-degree turns
+ROBOT_LEFT_TURN_RADIUS = 27 * SCALING_FACTOR # use 0.001 for in-place turns, or turn radius for 90-degree turns
+ROBOT_RIGHT_TURN_RADIUS = 27 * SCALING_FACTOR # use 0.001 for in-place turns, or turn radius for 90-degree turns
 ROBOT_SPEED_PER_SECOND = 50 * SCALING_FACTOR
 ROBOT_LEFT_S_FACTOR = ROBOT_LENGTH / ROBOT_LEFT_TURN_RADIUS
 ROBOT_RIGHT_S_FACTOR = ROBOT_LENGTH / ROBOT_RIGHT_TURN_RADIUS
